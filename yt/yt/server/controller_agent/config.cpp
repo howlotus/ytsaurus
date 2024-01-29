@@ -366,6 +366,13 @@ void TOperationOptions::Register(TRegistrar registrar)
     registrar.Parameter("set_container_cpu_limit", &TThis::SetContainerCpuLimit)
         .Default(false);
 
+    registrar.Parameter("set_container_memory_limit", &TThis::SetContainerMemoryLimit)
+        .Default(false);
+
+    registrar.Parameter("container_memory_overhead", &TThis::ContainerMemoryOverhead)
+        .Default(0)
+        .GreaterThanOrEqual(0);
+
     // NB: defaults for these values are actually in preprocessor of TControllerAgentConfig::OperationOptions.
     registrar.Parameter("controller_building_job_spec_count_limit", &TThis::ControllerBuildingJobSpecCountLimit)
         .Default();

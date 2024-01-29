@@ -249,6 +249,10 @@ public:
 
     std::optional<double> ContainerCpuLimit;
 
+    i64 ContainerMemoryLimit = 0;
+
+    i64 JobProxyMemoryLimit = 0;
+
     NYT::NRpcProxy::TApiServiceConfigPtr ApiService;
 
     std::optional<int> StatisticsOutputTableCountLimit;

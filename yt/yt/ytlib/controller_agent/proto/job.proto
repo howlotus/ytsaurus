@@ -254,6 +254,8 @@ message TUserJobSpec
 
     optional double container_cpu_limit = 53 [default = 0];
 
+    optional int64 container_memory_limit = 72;
+
     optional bool make_rootfs_writable = 54 [default = false];
 
     optional int32 restart_exit_code = 55;
@@ -284,6 +286,8 @@ message TUserJobSpec
 
     // Memory size reserved for job proxy. Used in tests for checking job proxy memory overdraft.
     optional int64 job_proxy_memory_reserve = 66;
+
+    optional int64 job_proxy_memory_limit = 73;
 
     optional bool enable_rpc_proxy_in_job_proxy = 70 [default = false];
     optional int32 rpc_proxy_worker_thread_pool_size = 71 [default = 1];

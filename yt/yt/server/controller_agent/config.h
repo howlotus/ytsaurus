@@ -342,6 +342,12 @@ public:
     double CpuLimitOvercommitMultiplier;
     double InitialCpuLimitOvercommit;
 
+    //! Set job container memory limit to JobMemoryLimit + ContainerMemoryOverhead.
+    //! This is implemented only for CRI job environment.
+    bool SetContainerMemoryLimit;
+
+    i64 ContainerMemoryOverhead;
+
     //! Number of simultaneously building job specs after which controller starts throttling.
     std::optional<int> ControllerBuildingJobSpecCountLimit;
     //! Total slice count of currently building job specs after which controller starts throttling.

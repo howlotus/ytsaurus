@@ -1176,6 +1176,11 @@ private:
 
         spec->Resources.CpuLimit = config->ContainerCpuLimit;
 
+        if (config->ContainerMemoryLimit) {
+            // Sum up limits because job-proxy lives in the same container.
+            spec->Resources.MemoryLimit = config->ContainerMemoryLimit + config->JobProxyMemoryLimit;
+        }
+
         const auto& cpusetCpu = SlotCpusetCpus_[slotIndex];
         if (cpusetCpu != EmptyCpuSet) {
             spec->Resources.CpusetCpus = cpusetCpu;
